@@ -1,5 +1,14 @@
 package datastructure;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
 public class DataReader {
 
 	public static void main(String[] args) {
@@ -17,9 +26,58 @@ public class DataReader {
 		 * Demonstrate how to use Stack that includes push,peek,search,pop elements.
 		 * Use For Each loop/while loop/Iterator to retrieve data.
 		 */
+        String textFile = "/Users/mohammadsharkar/Desktop/MidtermNovember2018/src/data/self-driving-car";
+		//String textFile = System.getProperty("user.dir") + "/src/data/self-driving-car.txt";
+		FileReader fr = null;
+		BufferedReader br = null;
 
-		String textFile = System.getProperty("user.dir") + "/src/data/self-driving-car.txt";
+		try {
+			fr = new FileReader(textFile);
+			System.out.println("FileReader find the following path: " + textFile);
+		} catch (FileNotFoundException e) {
+			//e.printStackTrace();
+			System.out.println("We couldn't find the file");
+		}
+		String data = "";
+		try {
+			br = new BufferedReader(fr);
+			while ((data = br.readLine()) != null) {
+				System.out.println(data);
+			}
+		}catch(IOException e){
+			//e.printStackTrace();
+			System.out.println("We couldn't find the file");
+		}
+		finally {
+			if(fr != null){
+				fr=null;
+			}
+			if(br !=null){
+				br=null;
+			}
+		}
+		String[] storeArray = data.split(" ");
+		List<String> storeList = new LinkedList<String>();
+		Stack<String> storeStack = new Stack<String>();
 
+		for (String element: storeArray) {
+			storeList.add(element);
+			storeStack.push(element);
+		}
+		System.out.println("\n\nLinkedlist LIFO:");
+		Iterator<String> itr = storeList.iterator();
+		while (itr.hasNext()){
+			System.out.print(itr.next()+" ");
+		}
+		System.out.println("\n\nStack LIFO:");
+
+//		for (int k = 0; k<storeStack.size();k++){
+//			System.out.print(storeStack.pop()+ " ");
+//		}
+		while (!storeStack.isEmpty())
+		{
+			System.out.print(storeStack.pop() + " ");
+		}
 
 
 	}
