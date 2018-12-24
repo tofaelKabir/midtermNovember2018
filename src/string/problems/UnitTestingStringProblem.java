@@ -18,7 +18,7 @@ public class UnitTestingStringProblem {
         String st = "Java is a programming Language. Java is also an Island of Indonesia. Java is widely used language";
         Assert.assertEquals("Java: 3, a: 1, Language.: 1, widely: 1, is: 3, also: 1, language: 1, used: 1, an: 1, Island: 1, Indonesia.: 1, of: 1, programming: 1,",DuplicateWord.DuplicateWords(st));
 
-        //last one is not working well
+        //last one is not working
 
     }
 }

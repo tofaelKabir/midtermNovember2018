@@ -6,6 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LowestNumber {
+	public static int findLowestNum(int[] array){
+		int min = array[0];
+		for (int i = 1; i< array.length;i++){
+			if (array[i] < min) min = array[i];
+		}
+		System.out.println(min);
+		return min;
+	}
 
 	public static void main(String[] args) {
 		/*
@@ -16,7 +24,7 @@ public class LowestNumber {
 
 		//find lowest number from the array
 
-		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+		/*ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		List<String> lowestValue = new ArrayList<String>();
 		try {
 			connectToSqlDB.insertDataFromArrayToSqlTable(array, "tbl_lowestNumber", "column_lowestNumber");
@@ -28,7 +36,8 @@ public class LowestNumber {
 		System.out.println("Data is reading from the Table (tbl_primenumber) and displaying to the console");
 		for(String st:lowestValue){
 			System.out.println(st);
-		}
+		}*/
 	}
 
 }
+//not done yet
