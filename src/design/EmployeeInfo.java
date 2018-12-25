@@ -8,8 +8,7 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 
     static String companyName;
 
-
-	private int empID;
+    private int empID;
 	private String empName;
 	private String department;
 	private static double salary; //need to fix, doesn't work
@@ -142,10 +141,10 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 			yearlyBonus = salary * 0.08 * 12;
 		} else if (performance == 3) {
 			yearlyBonus = salary * 0.06 * 12;
-		} else if (performance <= 2) {
+		} else if (performance == 2) {
 			yearlyBonus = 0;
 			System.out.println("Your performance is poor, improve your performance."); //how this is printing during pension calculation??
-		} else if (performance <= 1){
+		} else if (performance == 1){
 			yearlyBonus = 0;
 			System.out.println("You are fired.");
 		}
