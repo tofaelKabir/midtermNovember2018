@@ -4,11 +4,7 @@ import java.util.Scanner;
 
 public class EmployeeInfo extends WhoWeAre implements Employee {
 	
- /* Remaining the following:
- * OOP( Inheritance and Polymorphism) concepts in every level possible.
- * Use all kind of keywords(super)
- * Implement Nested class.
- * Use Exception Handling */
+ /* Exception Handling is not used */
 
     static String companyName;
 
@@ -25,6 +21,14 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	public EmployeeInfo(){
 	}
 	//parameterized constructor created
+
+	public EmployeeInfo(int empID, String empName, boolean usaCitizen) {
+		this.empID = empID;
+		this.empName = empName;
+		this.usaCitizen = usaCitizen;
+		System.out.println("Beth Israel's president's id :"+empID+", Name: "+empName+", USACitizen status: "+usaCitizen);
+	}
+
 	public EmployeeInfo(int empID, String empName, String department, int salary, char sex, boolean usaCitizen, int performance) {
 		this.empID = empID;
 		this.empName = empName;
@@ -33,16 +37,11 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		this.sex = sex;
 		this.usaCitizen = usaCitizen;
 		this.performance = performance;
-		System.out.println("\nHospital's present CEO's id :"+empID+", First Name: "+empName+", He belongs to: "+department+". His Salary is: "+salary+". His sex is: "+sex+", definitely USACitizen status: "+usaCitizen+". His performance rating is: "+performance);
+		System.out.println("\nHospital's present CEO's id :"+empID+", Name: "+empName+". He is from: "+department+". His Salary is $: "+salary+". His sex is: "+sex+", definitely USACitizen status: "+usaCitizen+". His performance rating is: "+performance);
 	}
 
 	//Getter setter method for encapsulation
-	public static String getCompanyName() {
-		return companyName;
-	}
-	public static void setCompanyName(String companyName) {
-		EmployeeInfo.companyName = companyName;
-	}
+
 	public int getEmpID() {
 		return empID;
 	}
@@ -99,13 +98,13 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	@Override
 	public void assignDepartment() {
 	}
-
 	@Override
 	public int calculateSalary() {
 		return 0;
 	}
 	@Override
 	public void benefitLayout() {
+		System.out.println("Benefit for Mount Sinai Health System is the best among all the hospitals in NY");
 	}
 	@Override
 	public void hospitalDescription() {
@@ -145,7 +144,7 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 			yearlyBonus = salary * 0.06 * 12;
 		} else if (performance <= 2) {
 			yearlyBonus = 0;
-			System.out.println("Your performance is poor, improve your performance.");
+			System.out.println("Your performance is poor, improve your performance."); //how this is printing during pension calculation??
 		} else if (performance <= 1){
 			yearlyBonus = 0;
 			System.out.println("You are fired.");
@@ -184,12 +183,12 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		} else if (numberOfYears == 0) {
 			total = 0;
 		}
-		System.out.println("Total pension: $" + total);
+		System.out.println("Total pension: $" + total +"\n");
 
 		return total;
 	}
 
-	private static class DateConversion {
+	private static class DateConversion { //nested class!
 
 		public DateConversion(Months months){}
 		public static String convertDate(String date) {
