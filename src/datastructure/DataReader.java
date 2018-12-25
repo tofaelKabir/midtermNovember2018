@@ -49,37 +49,13 @@ public class DataReader {
 			System.out.println("We couldn't find the file");
 		}
 		finally {
-			if(fr != null){
-				fr=null;
+			if (fr != null) {
+				fr = null;
 			}
-			if(br !=null){
-				br=null;
+			if (br != null) {
+				br = null;
 			}
 		}
-		String[] storeArray = data.split(" ");
-		List<String> storeList = new LinkedList<String>();
-		Stack<String> storeStack = new Stack<String>();
-
-		for (String element: storeArray) {
-			storeList.add(element);
-			storeStack.push(element);
-		}
-		System.out.println("\n\nLinkedlist LIFO:");
-		Iterator<String> itr = storeList.iterator();
-		while (itr.hasNext()){
-			System.out.print(itr.next()+" ");
-		}
-		System.out.println("\n\nStack LIFO:");
-
-//		for (int k = 0; k<storeStack.size();k++){
-//			System.out.print(storeStack.pop()+ " ");
-//		}
-		while (!storeStack.isEmpty())
-		{
-			System.out.print(storeStack.pop() + " ");
-		}
-
-
 	}
-
 }
+//incomplete
