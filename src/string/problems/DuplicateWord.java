@@ -39,3 +39,4 @@ public class DuplicateWord {
     }
 
 }
+//Also Find the average length of the words is not done

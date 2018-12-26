@@ -6,7 +6,7 @@ public interface Employee {
 	public int employeeId();
 	public String employeeName();
 	public void assignDepartment();
-	public int calculateSalary();
+	public int calculateYearlySalary();
 	public void benefitLayout();
 
 	//default and static method can be implemented in Interface(created)

@@ -11,7 +11,7 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
     private int empID;
 	private String empName;
 	private String department;
-	private static double salary; //need to fix, doesn't work
+	private double monthlySalary; //need to fix, doesn't work
 	private char sex;
 	private boolean usaCitizen;
 	private int performance;
@@ -28,15 +28,14 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		System.out.println("Beth Israel's president's id :"+empID+", Name: "+empName+", USACitizen status: "+usaCitizen);
 	}
 
-	public EmployeeInfo(int empID, String empName, String department, int salary, char sex, boolean usaCitizen, int performance) {
+	public EmployeeInfo(int empID, String empName, String department, double salary, char sex, boolean usaCitizen, int performance) {
 		this.empID = empID;
 		this.empName = empName;
 		this.department = department;
-		this.salary = salary;
 		this.sex = sex;
 		this.usaCitizen = usaCitizen;
 		this.performance = performance;
-		System.out.println("\nHospital's present CEO's id :"+empID+", Name: "+empName+". He is from: "+department+". His Salary is $: "+salary+". His sex is: "+sex+", definitely USACitizen status: "+usaCitizen+". His performance rating is: "+performance);
+		System.out.println("\nHospital's present CEO's id :"+empID+", Name: "+empName+". He is from: "+department+". His Salary is $: "+ monthlySalary +". His sex is: "+sex+", definitely USACitizen status: "+usaCitizen+". His performance rating is: "+performance);
 	}
 
 	//Getter setter method for encapsulation
@@ -59,11 +58,13 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public double getSalary() {
-		return salary;
+	public double getMonthlySalary() {
+
+		return monthlySalary;
 	}
-	public void setSalary(double salary) {
-		this.salary = salary;
+	public void setMonthlySalary(double monthlySalary) {
+
+		this.monthlySalary = monthlySalary;
 	}
 	public char getSex() {
 		return sex;
@@ -98,8 +99,9 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	public void assignDepartment() {
 	}
 	@Override
-	public int calculateSalary() {
-		return 0;
+	public int calculateYearlySalary()
+	{int yearlySalary = (int) (12 * monthlySalary);
+		return yearlySalary;
 	}
 	@Override
 	public void benefitLayout() {
@@ -116,14 +118,16 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	}
 	//parameterized constructor (implemented)
 	public EmployeeInfo(int employeeId){
+
 		this.empID = employeeId;
 	}
 	public EmployeeInfo(String name, int employeeId){
 		this.empName = name;
 		this.empID = employeeId;
 	}
-	public double calculateSalary(double salary) {
-		this.salary = salary;
+
+	public double calculateSalary() {
+		double salary = this.monthlySalary;
 		double yearlySalary = salary * 12;
 		return yearlySalary;
 	}
@@ -151,13 +155,13 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		return yearlyBonus;
 	}
 
-	public static int calculateEmployeePension(double salary){
+	public int calculateEmployeePension(double salary){
 		int total=0;
 		Scanner sc  = new Scanner(System.in);
 		System.out.println("Please enter start date in format (example: May,2015): ");
 		String joiningDate = sc.nextLine();
 		System.out.println("Please enter today's date in format (example: August,2017): ");
-		String todaysDate = sc.nextLine();
+		String todaysDate= sc.nextLine();
         String convertedJoiningDate = DateConversion.convertDate(joiningDate);
         String convertedTodaysDate = DateConversion.convertDate(todaysDate);
 		String startYear = convertedJoiningDate.substring(convertedJoiningDate.length() - 4, convertedJoiningDate.length());
@@ -170,15 +174,15 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		int numberOfYears = current - start;
 
 		if (numberOfYears >= 5) {
-			total = (int) (EmployeeInfo.salary * .25);
+			total = (int) (salary* .25);
 		} else if (numberOfYears == 4) {
-			total = (int) (EmployeeInfo.salary * .20);
+			total = (int) (salary * .20);
 		} else if (numberOfYears == 3) {
-			total = (int) (EmployeeInfo.salary * .15);
+			total = (int) (salary * .15);
 		} else if (numberOfYears == 2) {
-			total = (int) (EmployeeInfo.salary * .10);
+			total = (int) (salary * .10);
 		} else if (numberOfYears == 1) {
-			total = (int) (EmployeeInfo.salary * .05);
+			total = (int) (salary * .05);
 		} else if (numberOfYears == 0) {
 			total = 0;
 		}
@@ -190,6 +194,7 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	private static class DateConversion { //nested class!
 
 		public DateConversion(Months months){}
+
 		public static String convertDate(String date) {
 			String [] extractMonth = date.split(",");
 			String givenMonth = extractMonth[0];
@@ -221,22 +226,22 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 					date = 6;
 					break;
 				case July:
-					date = 1;
+					date = 7;
 					break;
 				case August:
-					date = 1;
+					date = 8;
 					break;
 				case September:
-					date = 1;
+					date = 9;
 					break;
 				case October:
-					date = 1;
+					date = 10;
 					break;
 				case November:
-					date = 1;
+					date = 11;
 					break;
 				case December:
-					date = 1;
+					date = 12;
 					break;
 				default:
 					date = 0;
