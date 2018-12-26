@@ -10,8 +10,8 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 
     private int empID;
 	private String empName;
+	private double monthlySalary;
 	private String department;
-	private double monthlySalary; //need to fix, doesn't work
 	private char sex;
 	private boolean usaCitizen;
 	private int performance;
@@ -20,52 +20,36 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	public EmployeeInfo(){
 	}
 	//parameterized constructor created
-
-	public EmployeeInfo(int empID, String empName, boolean usaCitizen) {
-		this.empID = empID;
-		this.empName = empName;
-		this.usaCitizen = usaCitizen;
-		System.out.println("Beth Israel's president's id :"+empID+", Name: "+empName+", USACitizen status: "+usaCitizen);
-	}
-
-	public EmployeeInfo(int empID, String empName, String department, double salary, char sex, boolean usaCitizen, int performance) {
+	public EmployeeInfo(int empID, String empName, String department) {
 		this.empID = empID;
 		this.empName = empName;
 		this.department = department;
+		System.out.println("Beth Israel's president's id :"+empID+", Name: "+empName+", Department: "+department);
+	}
+	public EmployeeInfo(int empID, String empName, String department, double monthlySalary, char sex, boolean usaCitizen, int performance) {
+		this.empID = empID;
+		this.empName = empName;
+		this.department = department;
+		this.monthlySalary = monthlySalary;
 		this.sex = sex;
 		this.usaCitizen = usaCitizen;
 		this.performance = performance;
-		System.out.println("\nHospital's present CEO's id :"+empID+", Name: "+empName+". He is from: "+department+". His Salary is $: "+ monthlySalary +". His sex is: "+sex+", definitely USACitizen status: "+usaCitizen+". His performance rating is: "+performance);
+		System.out.println("\nHospital's present CEO's id :"+empID+", Name: "+empName+". He is from: "+department+". His Yearly salary is $: "+ monthlySalary*12 +". His sex is: "+sex+", definitely USACitizen status: "+usaCitizen+". His performance rating is: "+performance);
 	}
 
 	//Getter setter method for encapsulation
-
-	public int getEmpID() {
-		return empID;
-	}
-	public void setEmpID(int empID) {
-		this.empID = empID;
-	}
-	public String getEmpName() {
-		return empName;
-	}
-	public void setEmpName(String empName) {
-		this.empName = empName;
-	}
+	public int getEmpID() { return empID; }
+	public void setEmpID(int empID) { this.empID = empID; }
+	public String getEmpName() { return empName; }
+	public void setEmpName(String empName) { this.empName = empName; }
 	public String getDepartment() {
 		return department;
 	}
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-	public double getMonthlySalary() {
-
-		return monthlySalary;
-	}
-	public void setMonthlySalary(double monthlySalary) {
-
-		this.monthlySalary = monthlySalary;
-	}
+	public double getMonthlySalary() { return monthlySalary; }
+	public void setMonthlySalary(double monthlySalary) { this.monthlySalary = monthlySalary; }
 	public char getSex() {
 		return sex;
 	}
@@ -99,8 +83,8 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 	public void assignDepartment() {
 	}
 	@Override
-	public int calculateYearlySalary()
-	{int yearlySalary = (int) (12 * monthlySalary);
+	public int calculateYearlySalary() {
+		int yearlySalary = (int) (12 * monthlySalary);  //after casting to int from double
 		return yearlySalary;
 	}
 	@Override
@@ -117,27 +101,23 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		System.out.println("All the employees get free health benefits without some exception\n");
 	}
 	//parameterized constructor (implemented)
-	public EmployeeInfo(int employeeId){
+	public EmployeeInfo(int employeeId){ this.empID = employeeId; }
+	public EmployeeInfo(String name, int employeeId){ this.empName = name; this.empID = employeeId; }
 
-		this.empID = employeeId;
-	}
-	public EmployeeInfo(String name, int employeeId){
-		this.empName = name;
-		this.empID = employeeId;
-	}
+//	public double calculateSalary() { //we don't need it
+//		double salary = this.monthlySalary;
+//		double yearlySalary = salary * 12;
+//		return yearlySalary;
+//	}
 
-	public double calculateSalary() {
-		double salary = this.monthlySalary;
-		double yearlySalary = salary * 12;
-		return yearlySalary;
-	}
-	//Polymorphism is used
-	public static int calculateEmployeeBonus(int numberOfYearsWithCompany){
+	//Method overloading (Polymorphism)
+	public static int calculateEmployeeYearlyBonus(int numberOfYearsWithCompany){
 		int total=0;
 		return total;
 	}
-	public static double calculateEmployeeBonus(double salary, int performance) {
-
+	public double calculateEmployeeYearlyBonus(double salary, int performance) {
+		this.monthlySalary = salary;
+		this.performance = performance;
 		double yearlyBonus = 0;
 		if (performance == 5) {
 			yearlyBonus = salary * 0.1 * 12;
@@ -147,7 +127,7 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 			yearlyBonus = salary * 0.06 * 12;
 		} else if (performance == 2) {
 			yearlyBonus = 0;
-			System.out.println("Your performance is poor, improve your performance."); //how this is printing during pension calculation??
+			System.out.println("Your performance is poor, improve your performance.");
 		} else if (performance == 1){
 			yearlyBonus = 0;
 			System.out.println("You are fired.");
@@ -155,7 +135,7 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		return yearlyBonus;
 	}
 
-	public int calculateEmployeePension(double salary){
+	public int calculateEmployeeMonthlyPension(double salary){
 		int total=0;
 		Scanner sc  = new Scanner(System.in);
 		System.out.println("Please enter start date in format (example: May,2015): ");
@@ -186,7 +166,7 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 		} else if (numberOfYears == 0) {
 			total = 0;
 		}
-		System.out.println("Total pension: $" + total +"\n");
+		System.out.println("Your Monthly pension according to staying with us: $" + total +"\n");
 
 		return total;
 	}
@@ -248,7 +228,6 @@ public class EmployeeInfo extends WhoWeAre implements Employee {
 					break;
 			}
 			return date;
-
 		}
 	}
 }

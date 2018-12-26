@@ -4,7 +4,7 @@ package design;
 public class EmployeeBethIsrael extends EmployeeInfo{
 
     public EmployeeBethIsrael(){
-        super(2312345,"Jeremy Boal",true); //only one constructor either default or parameterized, can be called by super from Parents class
+        super(2312345,"Jeremy Boal","Microbiology"); //only one constructor either default or parameterized, can be called by super from Parents class
         super.benefitLayout(); //super can call it's parent's original method as well as it's inherited method from Interface and Abstract class.
         super.healthInsurance();
     }
@@ -12,12 +12,8 @@ public class EmployeeBethIsrael extends EmployeeInfo{
     public static void bethIsraelInfo(){
         System.out.println("Beth Israel: A 799-bed teaching hospital founded in 1889 on Manhattan’s Lower East Side\n");
     }
-    public static int calculateEmployeeBonus(int numberOfYearsWithCompany){
-        int total=0;
-        return total;
-    }
-    //overloading
-    public static double calculateEmployeeBonus(double salary, int performance) {
+    //overriding (polymorphism)
+    public double calculateEmployeeYearlyBonus(double salary, int performance) {
 
         double yearlyBonus = 0;
         if (performance == 5) {

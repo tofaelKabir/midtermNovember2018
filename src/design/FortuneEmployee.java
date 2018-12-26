@@ -22,7 +22,7 @@ public class FortuneEmployee {
 		info.hospitalEstablished();
 		info.hospitalDescription();
 
-		EmployeeInfo ceo = new EmployeeInfo(1209164, "Kenneth L. Davis","Psychology",480000,'M',true,5);
+		EmployeeInfo ceo = new EmployeeInfo(1209164, "Kenneth L. Davis","Psychology",40000,'M',true,5);
 		info.startUpBonus();
 		Employee.housing(); //static method can be called by Interface directly without instantiating it
 		info.healthInsurance();
@@ -30,10 +30,10 @@ public class FortuneEmployee {
 		EmployeeBethIsrael.bethIsraelInfo(); //static method can be called by class or interface directly without instantiating it
 
 		EmployeeBethIsrael eBI = new EmployeeBethIsrael();
-		eBI.setMonthlySalary(320000);
+		eBI.setMonthlySalary(22000);
 		eBI.getMonthlySalary();
 		eBI.setPerformance(4);
-		System.out.println("His Yearly salary with bonus $:"+eBI.calculateEmployeeBonus(eBI.getMonthlySalary(), (int) eBI.getPerformance())+"\n");
+		System.out.println("His Yearly bonus $:"+eBI.calculateEmployeeYearlyBonus(eBI.getMonthlySalary(), (int) eBI.getPerformance())+"\n");
 		System.out.println("\nNow The calculation for Pension:\n");
 
 
@@ -41,27 +41,27 @@ public class FortuneEmployee {
 		emp1.setDepartment("Medicine");
 		emp1.setMonthlySalary(22000);
 		emp1.calculateYearlySalary();
-		emp1.setPerformance(1);
-		double bonus101 = emp1.calculateEmployeeBonus(emp1.getMonthlySalary(), (int) emp1.getPerformance());
-		emp1.calculateEmployeePension((int)emp1.getMonthlySalary());
+		emp1.setPerformance(5);
+		double bonus101 = emp1.calculateEmployeeYearlyBonus(emp1.getMonthlySalary(), (int) emp1.getPerformance());
+		emp1.calculateEmployeeMonthlyPension((int)emp1.getMonthlySalary());
 
 		EmployeeInfo emp2 = new EmployeeInfo("Mohammad Sharkar", 2188458);
 		emp2.setDepartment("Cardiology");
 		emp2.setMonthlySalary(5000);
-		emp2.calculateSalary();
+		emp2.calculateYearlySalary();
 		emp2.getMonthlySalary();
-		emp2.setPerformance(2);
-		double bonus102 = emp2.calculateEmployeeBonus(emp2.getMonthlySalary(), (int) emp2.getPerformance());
-		emp2.calculateEmployeePension((int)emp2.getMonthlySalary());
+		emp2.setPerformance(4);
+		double bonus102 = emp2.calculateEmployeeYearlyBonus(emp2.getMonthlySalary(), (int) emp2.getPerformance());
+		emp2.calculateEmployeeMonthlyPension((int)emp2.getMonthlySalary());
 
 		EmployeeInfo emp3 = new EmployeeInfo("Pin Xu", 2347865);
 		emp3.setDepartment("Genetics");
 		emp3.setMonthlySalary(15000);
 		emp3.calculateYearlySalary();
 		emp3.getMonthlySalary();
-		emp3.setPerformance(1);
-		double bonus103 = emp3.calculateEmployeeBonus(emp3.getMonthlySalary(), (int) emp3.getPerformance());
-		emp3.calculateEmployeePension((int)emp3.getMonthlySalary());
+		emp3.setPerformance(3);
+		double bonus103 = emp3.calculateEmployeeYearlyBonus(emp3.getMonthlySalary(), (int) emp3.getPerformance());
+		emp3.calculateEmployeeMonthlyPension((int)emp3.getMonthlySalary());
 
 
 		List<Object> emp1Record = new ArrayList<Object>();

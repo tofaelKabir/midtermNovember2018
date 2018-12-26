@@ -1,0 +1,41 @@
+
+
+
+Total Execution Time of 1000 numbers in Selection Sort take: 7 milli sec
+Total Execution Time of 1000 numbers in Insertion Sort take: 8 milli sec
+Total Execution Time of 1000 numbers in Bubble Sort take: 10 milli sec
+Total Execution Time of 1000 numbers in Merge Sort take: 3 milli sec
+Total Execution Time of 1000 numbers in Quick Sort take: 0 milli sec
+Total Execution Time of 1000 numbers in Heap Sort take: 1 milli sec
+Total Execution Time of 1000 numbers in Bucket Sort take: 16 milli sec
+
+Total Execution Time of 10000 numbers in Selection Sort take: 81 milli sec
+Total Execution Time of 10000 numbers in Insertion Sort take: 110 milli sec
+Total Execution Time of 10000 numbers in Bubble Sort take: 308 milli sec
+Total Execution Time of 10000 numbers in Merge Sort take: 27 milli sec
+Total Execution Time of 10000 numbers in Quick Sort take: 26 milli sec
+Total Execution Time of 10000 numbers in Heap Sort take: 17 milli sec
+Total Execution Time of 10000 numbers in Bucket Sort take: 20 milli sec
+
+Total Execution Time of 100000 numbers in Selection Sort take: 5365 milli sec
+Total Execution Time of 100000 numbers in Insertion Sort take: 7680 milli sec
+Total Execution Time of 100000 numbers in Bubble Sort take: 23252 milli sec
+Total Execution Time of 100000 numbers in Merge Sort take: 49 milli sec
+Total Execution Time of 100000 numbers in Quick Sort take: 30 milli sec
+Total Execution Time of 100000 numbers in Heap Sort take: 22 milli sec
+Total Execution Time of 100000 numbers in Bucket Sort take: 13 milli sec
+
+Total Execution Time of 1000000 numbers in Selection Sort take: 525544 milli sec
+Total Execution Time of 1000000 numbers in Insertion Sort take: 833515 milli sec
+Total Execution Time of 1000000 numbers in Bubble Sort take: 2486337 milli sec
+Total Execution Time of 1000000 numbers in Merge Sort take: 348 milli sec
+Total Execution Time of 1000000 numbers in Quick Sort take: 190 milli sec
+Total Execution Time of 1000000 numbers in Heap Sort take: 178 milli sec
+Total Execution Time of 1000000 numbers in Bucket Sort take: 29 milli sec
+
+
+Conclusion: bubble sort, selection sort and insertin sort are fastest sorting
+algorithm for small sized array and bucket sort is the worst.
+For array with average size, heap sort and quick sort  fastest.
+For array with large data size, bucket sort, heap sort, quick sort and merge sort
+are the best sorting algorithm.
